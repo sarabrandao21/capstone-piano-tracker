@@ -1,10 +1,11 @@
 import React from "react";
-import firebase from "firebase";
+import Piano from "./Piano";
+
 const Homepage = () => {
   return (
     <div>
-      <h1> Welcome Home </h1>
-      <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
+      <h1> This is home </h1>
+      <Piano />
     </div>
   );
 };

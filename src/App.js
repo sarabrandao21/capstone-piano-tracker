@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Homepage from "./components/Homepage";
 import firebase from "firebase";
 import Fire from "./config/Fire";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Profile from "./components/Profile";
+import Settings from "./components/Settings";
+import Homepage from "./components/Homepage";
 
 import "./App.css";
 const uiConfig = {
@@ -29,14 +33,58 @@ function App() {
 
   return (
     <div className="App">
-      {isSignedIn ? (
-        <Homepage />
-      ) : (
-        <StyledFirebaseAuth
-          uiConfig={uiConfig}
-          firebaseAuth={firebase.auth()}
-        />
-      )}
+      <div className="main-login-page">
+        {isSignedIn ? (
+          <div>
+            <h1 className="app-header"> Piano Tracker </h1>
+            <Router>
+              <div>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to="/"> Home </Link>
+                    </li>
+                    <li>
+                      <Link to="/profile"> Profile </Link>
+                    </li>
+                    <li>
+                      <Link to="/settings"> Settings </Link>
+                    </li>
+                    <li>
+                      <button onClick={() => firebase.auth().signOut()}>
+                        Sign Out
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+
+                <Switch>
+                  <Route path="/profile">
+                    <Profile />
+                  </Route>
+                  <Route path="/settings">
+                    <Settings />
+                  </Route>
+                  <Route path="/">
+                    <Homepage />
+                  </Route>
+                </Switch>
+              </div>
+            </Router>
+          </div>
+        ) : (
+          <div className="login-container">
+            <h1 className="app-name">Piano Tracker</h1>
+            <StyledFirebaseAuth
+              uiConfig={uiConfig}
+              firebaseAuth={firebase.auth()}
+            />
+          </div>
+        )}
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 }
