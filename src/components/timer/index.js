@@ -5,6 +5,12 @@ import "./styles.css";
 
 const Timer = () => {
   const [timingEvents, setTimingEvents] = useState([]);
+  const [nonce, setNonce] = useState(0);
+
+  const tick = () => {
+    setNonce(nonce + 1);
+  };
+  setInterval(tick, 1000);
 
   const addTimerEvent = () => {
     let newTimingEvents = [...timingEvents, new Date()];
@@ -13,8 +19,8 @@ const Timer = () => {
 
   return (
     <div className="container-timer">
-      <ElapsedTime />
-      <Buttons handleClick={addTimerEvent} />
+      <ElapsedTime timingEvents={timingEvents} />
+      <Buttons handleClick={addTimerEvent} timingEvents={timingEvents} />
     </div>
   );
 };

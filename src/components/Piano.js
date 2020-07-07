@@ -6,19 +6,19 @@ const Piano = () => {
   const pianoKeys = () => {}; //
   return (
     <div>
-      <ul class="set">
-        <li class="key white b"></li>
-        <li class="key black as"></li>
-        <li class="key white a"></li>
-        <li class="key black gs"></li>
-        <li class="key white g"></li>
-        <li class="key black fs"></li>
-        <li class="key white f"></li>
-        <li class="key white e"></li>
-        <li class="key black ds"></li>
-        <li class="key white d"></li>
-        <li class="key black cs"></li>
-        <li class="key white c"></li>
+      <ul className="set">
+        <li className="key white b"></li>
+        <li className="key black as"></li>
+        <li className="key white a"></li>
+        <li className="key black gs"></li>
+        <li className="key white g"></li>
+        <li className="key black fs"></li>
+        <li className="key white f"></li>
+        <li className="key white e"></li>
+        <li className="key black ds"></li>
+        <li className="key white d"></li>
+        <li className="key black cs"></li>
+        <li className="key white c"></li>
       </ul>
     </div>
   );
