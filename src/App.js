@@ -39,8 +39,8 @@ function App() {
             <h1 className="app-header"> Piano Tracker </h1>
             <Router>
               <div>
-                <nav>
-                  <ul>
+                <nav className="navbar">
+                  <ul className="header-ul">
                     <li>
                       <Link to="/"> Home </Link>
                     </li>

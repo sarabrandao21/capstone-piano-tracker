@@ -71,10 +71,10 @@ ul .white:active {
   margin: 0 0 0 -1em;
 }
 
-ul li:first-child {
+.set .key:first-child {
   border-radius: 5px 0 5px 5px;
 }
 
-ul li:last-child {
+.set .key:last-child {
   border-radius: 0 5px 5px 5px;
 }

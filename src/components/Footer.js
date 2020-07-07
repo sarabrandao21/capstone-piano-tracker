@@ -6,7 +6,7 @@ function Footer() {
     <footer class="footer-distributed">
       <div class="footer-left">
         <h3>
-          Company<span>logo</span>
+          Piano<span>Tracker</span>
         </h3>
 
         <p class="footer-links">
