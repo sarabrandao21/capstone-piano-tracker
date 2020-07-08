@@ -1,26 +1,36 @@
-import React, { useState, useEffect } from "react";
-import ElapsedTime from "./elapsed-time";
+import React, { useState, useEffect, useCallback } from "react";
 import Buttons from "./buttons";
+import formatDuration from "format-duration";
 import "./styles.css";
 
+const DEFAULT_TIME = 15; // in minutes
+
 const Timer = () => {
-  const [timingEvents, setTimingEvents] = useState([]);
-  const [nonce, setNonce] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0);
 
-  const tick = () => {
-    setNonce(nonce + 1);
-  };
-  setInterval(tick, 1000);
+  useEffect(() => {
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(() => {
+        setElapsedTime((elapsedTime) => elapsedTime + 1);
+      }, 1000);
+    } else if (!isActive && elapsedTime !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isActive, elapsedTime]);
 
-  const addTimerEvent = () => {
-    let newTimingEvents = [...timingEvents, new Date()];
-    setTimingEvents(newTimingEvents);
+  const onToggle = () => {
+    setIsActive(!isActive);
   };
 
   return (
     <div className="container-timer">
-      <ElapsedTime timingEvents={timingEvents} />
-      <Buttons handleClick={addTimerEvent} timingEvents={timingEvents} />
+      <div className="elapsed-time">
+        {formatDuration(DEFAULT_TIME * 60 * 1000 - elapsedTime * 1000)}
+      </div>
+      <Buttons handleClick={onToggle} isActive={isActive} />
     </div>
   );
 };

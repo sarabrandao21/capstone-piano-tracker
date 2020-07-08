@@ -1,7 +1,7 @@
 import React from "react";
 
 const Buttons = (props) => {
-  const label = props.timingEvents.length % 2 === 0 ? "Start" : "Stop";
+  const label = props.isActive ? "Stop" : "Start";
   return (
     <div className="buttons">
       <button onClick={props.handleClick}>{label}</button>
