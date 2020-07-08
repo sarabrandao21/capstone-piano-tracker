@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
-import Fire from "./config/Fire";
+import initializeFirebase from "./config/Fire";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -20,6 +20,7 @@ const uiConfig = {
     signInSucess: () => false,
   },
 };
+initializeFirebase();
 
 function App() {
   const [isSignedIn, setSignedIn] = useState(false);

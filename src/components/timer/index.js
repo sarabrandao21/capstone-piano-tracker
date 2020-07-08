@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Buttons from "./buttons";
 import formatDuration from "format-duration";
 import "./styles.css";
@@ -24,13 +24,23 @@ const Timer = () => {
   const onToggle = () => {
     setIsActive(!isActive);
   };
+  const onEnd = () => {
+    const response = window.confirm(
+      "Are you sure you want to end your session?"
+    );
+    if (response) {
+      const totalPlayed = DEFAULT_TIME - elapsedTime;
+      setIsActive(false);
+      setElapsedTime(0);
+    }
+  };
 
   return (
     <div className="container-timer">
       <div className="elapsed-time">
         {formatDuration(DEFAULT_TIME * 60 * 1000 - elapsedTime * 1000)}
       </div>
-      <Buttons handleClick={onToggle} isActive={isActive} />
+      <Buttons handleClick={onToggle} isActive={isActive} handleEnd={onEnd} />
     </div>
   );
 };

@@ -1,7 +1,13 @@
 import React from "react";
+import WebMidi from "webmidi";
 import "./Piano.css";
 
 const Piano = () => {
+  WebMidi.enable(function () {
+    // Viewing available inputs and outputs
+    console.log(WebMidi.inputs);
+    console.log(WebMidi.outputs);
+  });
   const octaves = 6;
   const pianoKeys = () => {}; //
   return (

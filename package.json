@@ -13,7 +13,7 @@
     "react-firebaseui": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-web-midi": "^1.1.1"
+    "webmidi": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

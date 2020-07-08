@@ -9,8 +9,8 @@ function Footer() {
           Piano<span>Tracker</span>
         </h3>
 
-        <p className="footer-links">
-          <a href="#" class="link-1">
+        {/* <p className="footer-links">
+          <a href="#" className="link-1">
             Home
           </a>
 
@@ -23,7 +23,7 @@ function Footer() {
           <a href="#">Faq</a>
 
           <a href="#">Contact</a>
-        </p>
+        </p> */}
 
         <p className="footer-company-name">Company Name © 2020</p>
       </div>
@@ -56,7 +56,7 @@ function Footer() {
           euismod convallis velit, eu auctor lacus vehicula sit amet.
         </p>
 
-        <div className="footer-icons">
+        {/* <div className="footer-icons">
           <a href="#">
             <i className="fa fa-facebook"></i>
           </a>
@@ -69,7 +69,7 @@ function Footer() {
           <a href="#">
             <i className="fa fa-github"></i>
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
