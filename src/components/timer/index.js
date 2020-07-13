@@ -46,8 +46,8 @@ const Timer = () => {
       const uid = firebase.auth().currentUser.uid;
       const sessionsRef = firebase.database().ref(`sessions/${uid}`);
       const session = {
-        timePlayed: totalPlayed,
-        date: new Date(),
+        timePlayed: totalPlayed, //all seconds right now
+        date: new Date(), //TODO
       };
       sessionsRef.push(session);
       // Alert.alert("Action!", "A new session was created");
