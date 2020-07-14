@@ -42,12 +42,17 @@ const Timer = () => {
       "Are you sure you want to end your session?"
     );
     if (response) {
+      const newDate = new Date();
       const totalPlayed = elapsedTime;
       const uid = firebase.auth().currentUser.uid;
-      const sessionsRef = firebase.database().ref(`sessions/${uid}`);
+      const sessionsRef = firebase
+        .database()
+        .ref(
+          `sessions/${uid}/${newDate.getDate()}${newDate.getMonth()}${newDate.getFullYear()}`
+        );
       const session = {
-        timePlayed: totalPlayed, //all seconds right now
-        date: new Date(), //TODO
+        timePlayed: formatDuration(totalPlayed * 1000), //string
+        date: newDate.toString(),
       };
       sessionsRef.push(session);
       // Alert.alert("Action!", "A new session was created");
