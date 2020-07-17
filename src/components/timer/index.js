@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Buttons from "./buttons";
-import formatDuration from "format-duration";
+import TimeField from "react-simple-timefield";
 import Piano from "../Piano";
 import firebase from "firebase";
+import { formatDurationWithSec, stringToSeconds } from "../../util";
 import "./styles.css";
 
-const DEFAULT_TIME = 15; //session can be changed by user
 const TIME_OUT = 60; //60 seconds without a pressed key auto pause session
-
 const Timer = () => {
+  const [time, setTime] = useState("00:15:00");
   const [isActive, setIsActive] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [timeSincePlayed, setTimeSincePlayed] = useState(0);
+
+  const onTimeChange = (event, time) => {
+    setElapsedTime(0);
+    setTime(time);
+  };
 
   useEffect(() => {
     let interval = null;
@@ -51,22 +56,42 @@ const Timer = () => {
           `sessions/${uid}/${newDate.getDate()}${newDate.getMonth()}${newDate.getFullYear()}`
         );
       const session = {
-        timePlayed: formatDuration(totalPlayed * 1000), //string
+        timePlayedInSeconds: totalPlayed,
         date: newDate.toString(),
       };
       sessionsRef.push(session);
-      // Alert.alert("Action!", "A new session was created");
       setIsActive(false);
       setElapsedTime(0);
     }
   };
 
+  const reset = () => {
+    setIsActive(false);
+    setElapsedTime(0);
+  };
+
+  const timeToRender = formatDurationWithSec(
+    stringToSeconds(time) - elapsedTime
+  );
+
   return (
     <div className="container-timer">
-      <div className="elapsed-time">
-        {formatDuration(DEFAULT_TIME * 60 * 1000 - elapsedTime * 1000)}
+      <div className="time-input">
+        <TimeField
+          value={timeToRender}
+          onChange={onTimeChange}
+          showSeconds={true}
+          disabled={isActive}
+        />
       </div>
-      <Buttons handleClick={onToggle} isActive={isActive} handleEnd={onEnd} />
+      <div>
+        <Buttons
+          handleClick={onToggle}
+          isActive={isActive}
+          handleEnd={onEnd}
+          reset={reset}
+        />
+      </div>
       <div>
         <Piano setTimeSincePlayed={setTimeSincePlayed} />
       </div>

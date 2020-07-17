@@ -2,3 +2,7 @@
   text-align: center;
   font-size: 23px;
 }
+
+.time-input input {
+  width: 150px !important;
+}

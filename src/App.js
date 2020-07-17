@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Homepage from "./components/Homepage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 const uiConfig = {

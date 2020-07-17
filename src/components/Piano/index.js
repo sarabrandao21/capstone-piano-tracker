@@ -62,7 +62,7 @@ const Piano = ({ setTimeSincePlayed }) => {
   }
   return (
     <div>
-      {JSON.stringify(pressedNotes)}
+      <div className="container-notes">{JSON.stringify(pressedNotes[0])}</div>
 
       <ul className="set">{keys}</ul>
     </div>

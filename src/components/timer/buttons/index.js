@@ -1,11 +1,12 @@
 import React from "react";
 
-const Buttons = (props) => {
-  const label = props.isActive ? "Stop" : "Start";
+const Buttons = ({ handleClick, handleEnd, isActive, reset }) => {
+  const label = isActive ? "Pause" : "Start";
   return (
     <div className="buttons">
-      <button onClick={props.handleClick}>{label}</button>
-      <button onClick={props.handleEnd}>End</button>
+      <button onClick={handleClick}>{label}</button>
+      <button onClick={handleEnd}>End</button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 };
