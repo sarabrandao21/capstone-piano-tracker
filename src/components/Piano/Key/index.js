@@ -9,7 +9,7 @@ export default function Key({ note, isNotePressed }) {
         isNotePressed > -1 ? "active" : ""
       }`}
     >
-      {note}
+      {/* {note} */}
     </li>
   );
 }

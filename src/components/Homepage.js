@@ -1,6 +1,7 @@
 import React from "react";
 import Timer from "./timer";
 import ProgressBar from "react-bootstrap/ProgressBar";
+
 import "./Homepage.css";
 
 const Homepage = () => {
