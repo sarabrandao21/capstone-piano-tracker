@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Homepage from "./components/Homepage";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 const uiConfig = {
@@ -38,7 +37,7 @@ function App() {
       <div className="main-login-page">
         {isSignedIn ? (
           <div>
-            <h1 className="app-header"> Piano Tracker </h1>
+            <h1 className="app-header"> KeyLogger </h1>
             <Router>
               <div>
                 <nav className="navbar">
@@ -48,9 +47,6 @@ function App() {
                     </li>
                     <li>
                       <Link to="/profile"> Profile </Link>
-                    </li>
-                    <li>
-                      <Link to="/settings"> Settings </Link>
                     </li>
                     <li>
                       <button onClick={() => firebase.auth().signOut()}>
@@ -64,9 +60,6 @@ function App() {
                   <Route path="/profile">
                     <Profile />
                   </Route>
-                  <Route path="/settings">
-                    <Settings />
-                  </Route>
                   <Route path="/">
                     <Homepage />
                   </Route>
@@ -76,7 +69,7 @@ function App() {
           </div>
         ) : (
           <div className="login-container">
-            <h1 className="app-name">Piano Tracker</h1>
+            <h1 className="app-name">KeyLogger</h1>
             <StyledFirebaseAuth
               uiConfig={uiConfig}
               firebaseAuth={firebase.auth()}

@@ -1,13 +1,10 @@
 .set {
   height: 18.875rem;
   width: 87rem;
-  margin: 5rem auto;
-  padding: 2rem 0 0 2rem;
+  margin: 0 auto 5rem auto;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.25) inset,
-    0 1px rgba(212, 152, 125, 0.2) inset, 0 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 0;
 }
 
 .key {
@@ -19,7 +16,7 @@
 }
 
 ul .white {
-  height: 16rem;
+  height: 14rem;
   width: 3rem;
   z-index: 1;
   border-left: 1px solid #bbb;
@@ -89,5 +86,5 @@ ul .white.active {
 
 .chord-suggestions {
   padding: 1rem;
-  min-height: 81px;
+  min-height: 44px;
 }

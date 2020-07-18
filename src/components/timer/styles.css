@@ -4,5 +4,11 @@
 }
 
 .time-input input {
-  width: 150px !important;
+  width: 15rem !important;
+  text-align: center;
+  font-size: 2rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f4f4f4;
+  border-radius: 0.5rem;
 }
