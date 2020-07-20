@@ -4,7 +4,6 @@ import Key from "./Key";
 import "./Piano.css";
 import { Synth, PolySynth } from "tone";
 import { detect } from "@tonaljs/chord-detect";
-
 const synth = new PolySynth(Synth);
 synth.toMaster();
 
@@ -52,14 +51,14 @@ const Piano = ({ setTimeSincePlayed }) => {
 
   //   const pianoKeys = () => {};
 
-  const octaves = 4;
+  const octaves = 3;
   const keys = [];
   for (let i = 0; i < octaves; i++) {
     const octaveNotes = notes.map((note) => {
       const isNotePressed = pressedNotes.findIndex(
-        (curr) => curr.name === note && curr.octave === i + 2 //my octave starts on 2
+        (curr) => curr.name === note && curr.octave === i + 3 //my octave starts on 2
       );
-      return <Key note={note} isNotePressed={isNotePressed} />;
+      return <Key key={note} note={note} isNotePressed={isNotePressed} />;
     });
     keys.push(octaveNotes);
   }

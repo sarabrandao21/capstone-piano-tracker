@@ -1,6 +1,6 @@
 .app-header {
-  padding-top: 2rem;
   text-align: center;
+  margin: 0;
 }
 .main-login-page {
   min-height: 100vh;
@@ -38,4 +38,8 @@
   font-size: 23px;
   transition-duration: 0.4s;
   border-radius: 5px;
+}
+
+.header-ul li a:visited {
+  color: white;
 }

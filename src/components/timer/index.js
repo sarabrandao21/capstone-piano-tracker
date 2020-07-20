@@ -5,6 +5,7 @@ import Piano from "../Piano";
 import firebase from "firebase";
 import { formatDurationWithSec, stringToSeconds } from "../../util";
 import "./styles.css";
+import timerImg from "../../images/timer.svg";
 
 const TIME_OUT = 60; //60 seconds without a pressed key auto pause session
 const Timer = () => {
@@ -77,6 +78,7 @@ const Timer = () => {
   return (
     <div className="container-timer">
       <div className="time-input">
+        <img src={timerImg} />
         <TimeField
           value={timeToRender}
           onChange={onTimeChange}

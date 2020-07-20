@@ -3,12 +3,25 @@
   font-size: 23px;
 }
 
+.time-input {
+  display: inline-block;
+  position: relative;
+}
+
 .time-input input {
   width: 15rem !important;
   text-align: center;
   font-size: 2rem;
   padding: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #f4f4f4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
+  color: white;
+}
+
+.time-input img {
+  position: absolute;
+  left: 10px;
+  width: 42px;
+  top: 2px;
 }

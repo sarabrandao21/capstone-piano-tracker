@@ -44,11 +44,6 @@ const Profile = () => {
 
   return (
     <div>
-      <img
-        className="profile-pic"
-        alt="profile"
-        src={firebase.auth().currentUser.photoURL}
-      />
       <h2>{firebase.auth().currentUser.displayName} this is your progress:</h2>
       <p>
         You have played {formatDurationWithSec(totalTimePlayed)} keep up with
