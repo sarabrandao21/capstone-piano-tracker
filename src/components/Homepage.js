@@ -2,11 +2,12 @@ import React from "react";
 import Timer from "./timer";
 import "./Homepage.css";
 
-const Homepage = () => {
+const Homepage = ({ getSessionRef }) => {
   //how to calculate percentage of the session to change the animation
+
   return (
     <div>
-      <Timer />
+      <Timer getSessionRef={getSessionRef} />
     </div>
   );
 };

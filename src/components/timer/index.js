@@ -8,7 +8,7 @@ import "./styles.css";
 import timerImg from "../../images/timer.svg";
 
 const TIME_OUT = 60; //60 seconds without a pressed key auto pause session
-const Timer = () => {
+const Timer = ({ getSessionRef }) => {
   const [time, setTime] = useState("00:15:00");
   const [isActive, setIsActive] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -49,18 +49,13 @@ const Timer = () => {
     );
     if (response) {
       const newDate = new Date();
+      const sessionRef = getSessionRef();
       const totalPlayed = elapsedTime;
-      const uid = firebase.auth().currentUser.uid;
-      const sessionsRef = firebase
-        .database()
-        .ref(
-          `sessions/${uid}/${newDate.getDate()}${newDate.getMonth()}${newDate.getFullYear()}`
-        );
       const session = {
         timePlayedInSeconds: totalPlayed,
         date: newDate.toString(),
       };
-      sessionsRef.push(session);
+      sessionRef.push(session);
       setIsActive(false);
       setElapsedTime(0);
     }

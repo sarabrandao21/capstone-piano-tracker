@@ -13,13 +13,14 @@ const Piano = ({ setTimeSincePlayed }) => {
   const [pressedNotes, setPressedNotes] = useState([]);
 
   useEffect(() => {
+    console.log("STARTING WEB MIDI");
     WebMidi.enable((err) => {
       if (err) {
         console.log("WebMidi could not be enabled.", err);
       }
       console.log(WebMidi.inputs);
 
-      const input = WebMidi.getInputByName("Xkey37");
+      const input = WebMidi.inputs[0];
       //   console.log("INPUT", input);
       if (input) {
         input.addListener("noteon", "all", (e) => {

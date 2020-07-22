@@ -1,8 +1,9 @@
 import React from "react";
 import { formatDurationWithSec } from "../util";
+import "./DailyLog.css";
 const DailyLog = ({ data }) => {
   return (
-    <div>
+    <div className="sessions-container">
       <h3>Your Session(s)</h3>
       <p>
         {data ? (
@@ -11,7 +12,7 @@ const DailyLog = ({ data }) => {
             return <li>{formatDurationWithSec(value.timePlayedInSeconds)}</li>;
           })
         ) : (
-          <div>No data</div>
+          <div>No sessions</div>
         )}
       </p>
     </div>

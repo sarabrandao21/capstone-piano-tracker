@@ -8,11 +8,11 @@ const Buttons = ({ handleClick, handleEnd, isActive, reset }) => {
       <button className="button-session" onClick={handleClick}>
         {label}
       </button>
-      <button className="button-session" onClick={handleEnd}>
-        End
-      </button>
       <button className="button-session" onClick={reset}>
         Reset
+      </button>
+      <button className="button-session" onClick={handleEnd}>
+        End
       </button>
     </div>
   );

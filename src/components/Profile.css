@@ -1,5 +1,19 @@
-.profile-pic {
-  width: 75px;
-  border-radius: 100%;
-  margin: 1rem;
+.played-piano {
+  background-color: lightblue;
+}
+
+.username-progress {
+  text-margin: center;
+}
+.calendar-dailylog {
+  display: flex;
+}
+
+.total-played {
+  margin-bottom: 5rem;
+  font-weight: 300;
+}
+
+.container-card {
+  margin-left: 5rem;
 }
