@@ -7,8 +7,12 @@ import Profile from "./components/Profile";
 import Homepage from "./components/Homepage";
 import keyImg from "./images/key.svg";
 import { formatDate } from "./util";
-
+import { Synth, PolySynth } from "tone";
 import "./App.css";
+import WebMidi from "webmidi";
+const synth = new PolySynth(Synth);
+synth.toMaster();
+
 const uiConfig = {
   signInFlow: "popup",
   signInOptions: [
@@ -25,19 +29,13 @@ initializeFirebase();
 // const testDate = `${today.getDate()}${today.getMonth()}${today.getFullYear()}`
 function App() {
   const [isSignedIn, setSignedIn] = useState(false);
-  //const [sessions, setSessions] = useState();
+  const [pressedNotes, setPressedNotes] = useState([]);
+  const [timeSincePlayed, setTimeSincePlayed] = useState(0);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       console.log(user);
       setSignedIn(!!user);
-      // if (user && user.uid) {
-      //   const sessionsRef = firebase.database().ref(`sessions/${user.uid}`);
-      //   sessionsRef.once("value").then((snapshot) => {
-      //     console.log(snapshot.val());
-      //     //setSessions(snapshot.val());
-      //   });
-      // }
     });
   }, []);
 
@@ -50,6 +48,43 @@ function App() {
     return sessionRef;
   };
 
+  useEffect(() => {
+    console.log("STARTING WEB MIDI");
+    WebMidi.enable((err) => {
+      if (err) {
+        console.log("WebMidi could not be enabled.", err);
+      }
+      console.log(WebMidi.inputs);
+
+      const input = WebMidi.inputs[0];
+      //   console.log("INPUT", input);
+      if (input) {
+        input.addListener("noteon", "all", (e) => {
+          const note = `${e.note.name}${e.note.octave.toString()}`;
+          setPressedNotes((pressedNotes) => {
+            const newPressedNotes = [...pressedNotes, e.note];
+            return newPressedNotes;
+          });
+          synth.triggerAttackRelease(note, "8n");
+          if (setTimeSincePlayed) {
+            setTimeSincePlayed(0);
+          }
+        });
+
+        input.addListener("noteoff", "all", (e) => {
+          setPressedNotes((pressedNotes) => {
+            const index = pressedNotes.findIndex(
+              (note) => note.number === e.note.number
+            );
+            const newPressedNotes = [...pressedNotes];
+            newPressedNotes.splice(index, 1);
+
+            return newPressedNotes;
+          });
+        });
+      }
+    });
+  }, [setTimeSincePlayed]);
   return (
     <div className="App">
       <div className="main-login-page">
@@ -87,7 +122,12 @@ function App() {
                     <Profile />
                   </Route>
                   <Route path="/">
-                    <Homepage getSessionRef={getSessionRef} />
+                    <Homepage
+                      getSessionRef={getSessionRef}
+                      pressedNotes={pressedNotes}
+                      setTimeSincePlayed={setTimeSincePlayed}
+                      timeSincePlayed={timeSincePlayed}
+                    />
                   </Route>
                 </Switch>
               </div>

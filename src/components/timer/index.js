@@ -7,18 +7,28 @@ import { formatDurationWithSec, stringToSeconds } from "../../util";
 import "./styles.css";
 import timerImg from "../../images/timer.svg";
 
-const TIME_OUT = 60; //60 seconds without a pressed key auto pause session
-const Timer = ({ getSessionRef }) => {
+const TIME_OUT = 30; //60 seconds without a pressed key auto pause session
+const Timer = ({
+  setTimeSincePlayed,
+  getSessionRef,
+  pressedNotes,
+  timeSincePlayed,
+}) => {
   const [time, setTime] = useState("00:15:00");
   const [isActive, setIsActive] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
-  const [timeSincePlayed, setTimeSincePlayed] = useState(0);
 
   const onTimeChange = (event, time) => {
     setElapsedTime(0);
     setTime(time);
   };
-
+  const finishedSession = () => {
+    saveToDatabase();
+    setTime("00:15:00");
+    setIsActive(false);
+    setElapsedTime(0);
+  };
+  console.log(time);
   useEffect(() => {
     let interval = null;
     if (isActive) {
@@ -27,6 +37,8 @@ const Timer = ({ getSessionRef }) => {
 
         if (timeSincePlayed === TIME_OUT) {
           setIsActive(false);
+        } else if (timeToRender === "00:00:00") {
+          finishedSession();
         } else {
           setElapsedTime((elapsedTime) => elapsedTime + 1);
         }
@@ -43,21 +55,25 @@ const Timer = ({ getSessionRef }) => {
       setTimeSincePlayed(0);
     }
   };
+
+  const saveToDatabase = () => {
+    const newDate = new Date();
+    const sessionRef = getSessionRef();
+    const totalPlayed = elapsedTime;
+    const session = {
+      timePlayedInSeconds: totalPlayed,
+      date: newDate.toString(),
+    };
+    sessionRef.push(session);
+    setIsActive(false);
+    setElapsedTime(0);
+  };
   const onEnd = () => {
     const response = window.confirm(
       "Are you sure you want to end your session?"
     );
     if (response) {
-      const newDate = new Date();
-      const sessionRef = getSessionRef();
-      const totalPlayed = elapsedTime;
-      const session = {
-        timePlayedInSeconds: totalPlayed,
-        date: newDate.toString(),
-      };
-      sessionRef.push(session);
-      setIsActive(false);
-      setElapsedTime(0);
+      saveToDatabase();
     }
   };
 
@@ -90,7 +106,10 @@ const Timer = ({ getSessionRef }) => {
         />
       </div>
       <div>
-        <Piano setTimeSincePlayed={setTimeSincePlayed} />
+        <Piano
+          setTimeSincePlayed={setTimeSincePlayed}
+          pressedNotes={pressedNotes}
+        />
       </div>
     </div>
   );
