@@ -1,3 +1,5 @@
 .sessions-container {
-  padding-left: 3rem;
+  padding: 0 3rem 0 3rem;
+  margin-left: 3rem;
+  border: solid white;
 }
