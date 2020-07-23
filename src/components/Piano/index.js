@@ -5,15 +5,25 @@ import { detect } from "@tonaljs/chord-detect";
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-const Piano = ({ pressedNotes }) => {
+const Piano = ({ pressedNotes, noteOn, noteOff }) => {
   const octaves = 3;
   const keys = [];
   for (let i = 0; i < octaves; i++) {
     const octaveNotes = notes.map((note) => {
+      const octave = i + 3;
       const isNotePressed = pressedNotes.findIndex(
-        (curr) => curr.name === note && curr.octave === i + 3 //my octave starts on 2
+        (curr) => curr.name === note && curr.octave === octave
       );
-      return <Key key={note} note={note} isNotePressed={isNotePressed} />;
+      return (
+        <Key
+          key={note}
+          octave={octave}
+          note={note}
+          isNotePressed={isNotePressed}
+          noteOn={noteOn}
+          noteOff={noteOff}
+        />
+      );
     });
     keys.push(octaveNotes);
   }

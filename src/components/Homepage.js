@@ -7,6 +7,8 @@ const Homepage = ({
   setTimeSincePlayed,
   pressedNotes,
   TimeSincePlayed,
+  noteOn,
+  noteOff,
 }) => {
   //how to calculate percentage of the session to change the animation
 
@@ -17,6 +19,8 @@ const Homepage = ({
         pressedNotes={pressedNotes}
         setTimeSincePlayed={setTimeSincePlayed}
         TimeSincePlayed={TimeSincePlayed}
+        noteOff={noteOff}
+        noteOn={noteOn}
       />
     </div>
   );

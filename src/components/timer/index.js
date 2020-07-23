@@ -13,6 +13,8 @@ const Timer = ({
   getSessionRef,
   pressedNotes,
   timeSincePlayed,
+  noteOn,
+  noteOff,
 }) => {
   const [time, setTime] = useState("00:15:00");
   const [isActive, setIsActive] = useState(false);
@@ -109,6 +111,8 @@ const Timer = ({
         <Piano
           setTimeSincePlayed={setTimeSincePlayed}
           pressedNotes={pressedNotes}
+          noteOn={noteOn}
+          noteOff={noteOff}
         />
       </div>
     </div>

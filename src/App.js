@@ -48,6 +48,31 @@ function App() {
     return sessionRef;
   };
 
+  const noteOn = (e) => {
+    // e = { }
+    const note = `${e.note.name}${e.note.octave.toString()}`;
+    setPressedNotes((pressedNotes) => {
+      const newPressedNotes = [...pressedNotes, e.note];
+      return newPressedNotes;
+    });
+    synth.triggerAttackRelease(note, "8n");
+    if (setTimeSincePlayed) {
+      setTimeSincePlayed(0);
+    }
+  };
+  const noteOff = (e) => {
+    const noteEvent = `${e.note.name}${e.note.octave.toString()}`;
+    setPressedNotes((pressedNotes) => {
+      const index = pressedNotes.findIndex(
+        (note) => `${note.name}${note.octave.toString()}` === noteEvent
+      );
+      const newPressedNotes = [...pressedNotes];
+      newPressedNotes.splice(index, 1);
+
+      return newPressedNotes;
+    });
+  };
+
   useEffect(() => {
     console.log("STARTING WEB MIDI");
     WebMidi.enable((err) => {
@@ -59,29 +84,9 @@ function App() {
       const input = WebMidi.inputs[0];
       //   console.log("INPUT", input);
       if (input) {
-        input.addListener("noteon", "all", (e) => {
-          const note = `${e.note.name}${e.note.octave.toString()}`;
-          setPressedNotes((pressedNotes) => {
-            const newPressedNotes = [...pressedNotes, e.note];
-            return newPressedNotes;
-          });
-          synth.triggerAttackRelease(note, "8n");
-          if (setTimeSincePlayed) {
-            setTimeSincePlayed(0);
-          }
-        });
+        input.addListener("noteon", "all", noteOn);
 
-        input.addListener("noteoff", "all", (e) => {
-          setPressedNotes((pressedNotes) => {
-            const index = pressedNotes.findIndex(
-              (note) => note.number === e.note.number
-            );
-            const newPressedNotes = [...pressedNotes];
-            newPressedNotes.splice(index, 1);
-
-            return newPressedNotes;
-          });
-        });
+        input.addListener("noteoff", "all", noteOff);
       }
     });
   }, [setTimeSincePlayed]);
@@ -127,6 +132,8 @@ function App() {
                       pressedNotes={pressedNotes}
                       setTimeSincePlayed={setTimeSincePlayed}
                       timeSincePlayed={timeSincePlayed}
+                      noteOn={noteOn}
+                      noteOff={noteOff}
                     />
                   </Route>
                 </Switch>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Key({ note, isNotePressed }) {
+export default function Key({ note, octave, isNotePressed, noteOn, noteOff }) {
   const noteLetter = note.toLowerCase().replace("#", "");
   const noteColor = note.includes("#") ? "black" : "white";
   return (
@@ -8,8 +8,14 @@ export default function Key({ note, isNotePressed }) {
       className={`key ${noteLetter} ${noteColor} ${
         isNotePressed > -1 ? "active" : ""
       }`}
-    >
-      {/* {note} */}
-    </li>
+      onMouseDown={() => {
+        const noteEvent = { note: { name: noteLetter, octave: octave } };
+        noteOn(noteEvent);
+      }}
+      onMouseUp={() => {
+        const noteEvent = { note: { name: noteLetter, octave: octave } };
+        noteOff(noteEvent);
+      }}
+    ></li>
   );
 }
