@@ -7,7 +7,7 @@ import { formatDurationWithSec, formatDate, formatTimeAsWords } from "../util";
 //TODO could the user delete session?
 const Profile = () => {
   const [date, setDate] = useState(new Date());
-  const [dailyLogData, setDailyLogData] = useState();
+  const [dailyLogData, setDailyLogData] = useState({});
   const [totalTimePlayed, setTotalTimePlayed] = useState(0);
   const [sessions, setSessions] = useState({});
   const userUID = firebase.auth().currentUser.uid;
