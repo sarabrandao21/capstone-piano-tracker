@@ -1012,6 +1012,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.14.8", "@babel/runtime@^7.15.3":
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.3.tgz#2e1c2880ca118e5b2f9988322bd8a7656a32502b"
+  integrity sha512-OvwMLqNXkCXSz1kSm58sEsNuhqOx/fKpnUnKnFB5v8uDda5bLNEHNgKPvhDN6IU0LDcnHQ90LlJ0Q6jnyBSIBA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.10.4.tgz#3251996c4200ebc71d1a8fc405fba940f36ba278"
@@ -1751,6 +1758,41 @@
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-7.2.1.tgz#2ad4e844175a3738cb9e7064be5ea070b8863a1c"
   integrity sha512-oZ0Ib5I4Z2pUEcoo95cT1cr6slco9WY7yiPpG+RGNkj8YcYgJnM7pXmYmorNOReh8MIGcKSqXyeGjxnr8YiZbA==
 
+"@tonaljs/chord-detect@^3.5.6":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@tonaljs/chord-detect/-/chord-detect-3.7.0.tgz#c488002893886f0543e566544d82f268f2705fb8"
+  integrity sha512-1z8DG8avmtFXS8/vnfzJEgOP+zZvd827g4qjQKa1NyjLmrOp3BWi77iBhs4ktctxIT3xYPIGF8aH+DH5L73Tbw==
+  dependencies:
+    "@tonaljs/chord-type" "^3.7.0"
+    "@tonaljs/core" "^3.5.4"
+    "@tonaljs/pcset" "^3.5.4"
+
+"@tonaljs/chord-type@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@tonaljs/chord-type/-/chord-type-3.7.0.tgz#1c4ed55b39e762e149d4ee8db1fc39d11bdb0a11"
+  integrity sha512-Rg3xTRFtJOnHV0UILjFhYKn4+7JsOkAMMxQEEXcxSBTqrC6LQ4QSuOjkxpd1Q7tGqTkAdQCyNQJsR/iF4fXYsQ==
+  dependencies:
+    "@tonaljs/core" "^3.5.4"
+    "@tonaljs/pcset" "^3.5.4"
+
+"@tonaljs/collection@^3.5.3":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@tonaljs/collection/-/collection-3.5.3.tgz#2e8c7e688b4707460d7ad3c8caedd2f2b9df9cc1"
+  integrity sha512-RzEsHhbaZCAREWy0XuNRkHO//RgpoTw3FeWA7aeCyuVr2B36neLDnihBmo9T6KZBO/hSLcmPQy/NOEcvhsaVuA==
+
+"@tonaljs/core@^3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@tonaljs/core/-/core-3.5.4.tgz#ceb6c13cac0413ef6b3bee2a59e03d3e460f74c6"
+  integrity sha512-Rhe7TKNmkOb9/Ilu1ByCI7jIEc0hztGbfHMtI7N5sIdAXVaVzz0WaZdEuPKnAYibS8IRsT5Jm3B/oAEy5CdQAQ==
+
+"@tonaljs/pcset@^3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@tonaljs/pcset/-/pcset-3.5.4.tgz#dd4bfe9fe0dc03fa6822473c708e3b60e84a9f09"
+  integrity sha512-RaB1KJoq5ZhXuDEWPlf1NWi1Cwa67yUr43usDhw/abvvIyZAkEJ1jyg4Yiks29ua7zBeQSyrEU+leuKxFBTGcQ==
+  dependencies:
+    "@tonaljs/collection" "^3.5.3"
+    "@tonaljs/core" "^3.5.4"
+
 "@types/aria-query@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.0.tgz#14264692a9d6e2fa4db3df5e56e94b5e25647ac0"
@@ -1789,10 +1831,32 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/cheerio@*":
+  version "0.22.30"
+  resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.30.tgz#6c1ded70d20d890337f0f5144be2c5e9ce0936e6"
+  integrity sha512-t7ZVArWZlq3dFa9Yt33qFBQIK4CQd1Q3UJp0V+UhP6vgLWLM6Qug7vZuRSGXg45zXeB1Fm5X2vmBkEX58LV2Tw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+
+"@types/enzyme-adapter-react-16@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.0.5.tgz#1bf30a166f49be69eeda4b81e3f24113c8b4e9d5"
+  integrity sha512-K7HLFTkBDN5RyRmU90JuYt8OWEY2iKUn43SDWEoBOXd/PowUWjLZ3Q6qMBiQuZeFYK/TOstaZxsnI0fXoAfLpg==
+  dependencies:
+    "@types/enzyme" "*"
+
+"@types/enzyme@*":
+  version "3.10.9"
+  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.9.tgz#b2d7c7429a37d994c156b6f361e83f271a60c8aa"
+  integrity sha512-dx5UvcWe2Vtye6S9Hw2rFB7Ul9uMXOAje2FAbXvVYieQDNle9qPAo7DfvFMSztZ9NFiD3dVZ4JsRYGTrSLynJg==
+  dependencies:
+    "@types/cheerio" "*"
+    "@types/react" "*"
 
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
@@ -2501,6 +2565,14 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+automation-events@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/automation-events/-/automation-events-4.0.5.tgz#76474d8acf886e547abb5bcd795b3f02943806ef"
+  integrity sha512-yoXLUAHiK6JQgPSsMRdMFxE93RkgK+M4SX9LD8i2zCKn7SmhNxMKzD7N99xSLW1AuG4K5GYHcxLyQQf51VQUeA==
+  dependencies:
+    "@babel/runtime" "^7.14.8"
+    tslib "^2.3.0"
 
 autoprefixer@^9.6.1:
   version "9.7.4"
@@ -7965,9 +8037,9 @@ path-key@^3.1.0:
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -9206,6 +9278,13 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-simple-timefield@^3.0.0:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-simple-timefield/-/react-simple-timefield-3.2.3.tgz#e9c00876dd7656d05c2ac56b1fdd2958cb596aca"
+  integrity sha512-0Zc8UZucgpNSg+jCCC0lVmimJnQYGVd6699+5IfjDHFhbIdwGWPW04cfpvlJ2G6SNIoTDm1shm5rZD4lu8UvuQ==
+  dependencies:
+    "@types/enzyme-adapter-react-16" "1.0.5"
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
@@ -10137,6 +10216,15 @@ stack-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.2.tgz#33eba3897788558bebfc2db059dc158ec36cebb8"
   integrity sha512-MTX+MeG5U994cazkjd/9KNAapsHnibjMLnfXodlkXw76JEea0UiNzrqidzo1emMwk7w5Qhc9jd4Bn9TBb1MFwA==
 
+standardized-audio-context@^25.1.8:
+  version "25.3.4"
+  resolved "https://registry.yarnpkg.com/standardized-audio-context/-/standardized-audio-context-25.3.4.tgz#9edf48fa206f3b8167088e57a2373530e7edd074"
+  integrity sha512-qNdGITX2D7Pgl5avQGra5sffIluSTU7HC8dhx5eMJ8SbZjrb6UnXlQbBYkUePgAflBA3PdEL/RDikxROX9Zd8Q==
+  dependencies:
+    "@babel/runtime" "^7.15.3"
+    automation-events "^4.0.5"
+    tslib "^2.3.0"
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/static-extend/-/static-extend-0.1.2.tgz#60809c39cbff55337226fd5e0b520f341f1fb5c6"
@@ -10597,6 +10685,14 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
+tone@^14.7.0:
+  version "14.7.77"
+  resolved "https://registry.yarnpkg.com/tone/-/tone-14.7.77.tgz#12a2a9f033952ccdb552275a6384ca5d36d4b5ed"
+  integrity sha512-tCfK73IkLHyzoKUvGq47gyDyxiKLFvKiVCOobynGgBB9Dl0NkxTM2p+eRJXyCYrjJwy9Y0XCMqD3uOYsYt2Fdg==
+  dependencies:
+    standardized-audio-context "^25.1.8"
+    tslib "^2.0.1"
+
 tough-cookie@^2.3.3, tough-cookie@^2.3.4, tough-cookie@^2.5.0, tough-cookie@~2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2"
@@ -10626,6 +10722,11 @@ tslib@^1.11.1:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
+
+tslib@^2.0.1, tslib@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+  integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
 tsutils@^3.17.1:
   version "3.17.1"
